@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title %}Contact | Simoon World{% endblock %}
+{% block content %}
+<main class="contact-main">
+  <h1>Let’s Connect <span class="moon">🌙</span></h1>
+  <p>I’d love to hear from you — drop me a message or hit me up on socials.</p>
+
+  <form class="contact-form" method="POST" action="{{ url_for('contact') }}">
+    <div class="input-group">
+      <input type="text" placeholder="Your Name" name="name" required />
+    </div>
+    <div class="input-group">
+      <input type="email" placeholder="Your Email" name="email" required />
+    </div>
+    <div class="input-group">
+      <textarea placeholder="Your Message" name="message" required></textarea>
+    </div>
+    <button type="submit">🚀 Send Message</button>
+  </form>
+
+  <div class="social-links">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+  </div>
+</main>
+{% endblock %} {% with messages = get_flashed_messages() %} {% if messages %}
+<ul class="flash-messages">
+  {% for msg in messages %}
+  <li>{{ msg }}</li>
+  {% endfor %}
+</ul>
+{% endif %} {% endwith %}
